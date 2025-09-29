@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book PDF Library</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: black;
+    }
+    
+    header {
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    
+    #searchBar {
+      padding: 10px;
+      width: 80%;
+      max-width: 400px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+    
+    .filters {
+      margin-top: 20px;
+    }
+    
+    .filters h4 {
+      margin: 10px 0 5px;
+      font-size: 1.1em;
+    }
+    
+    .filter-btn {
+      padding: 8px 15px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      background-color: #fff;
+      color: #e91e63;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .filter-btn:hover {
+      background-color: #d81b60;
+      color: white;
+    }
+    
+    .filter-btn.active {
+      background-color: #d81b60;
+      color: white;
+    }
+    
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .book {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .book img {
+      width: 100%;
+      height: 85%;
+      border-radius: 5px;
+    }
+    
+    .book h3 {
+      margin: 10px 0 5px;
+      font-size: 0.5em;
+      color: #333;
+    }
+    
+    .book p {
+      margin: 0;
+      color: #666;
+      font-size: 0.9em;
+    }
+    
+    .book a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .book:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1><i>BOOK BANK</i></h1>
+    <input type="text" id="searchBar" placeholder="Search by title or author...">
+    <div class="filters">
+      <select id="filterDropdown" class="dropdown">
+        <option value="all">All</option>
+        <option value="sem1">Sem 1</option>
+        <option value="sem2">Sem 2</option>
+        <option value="sem3">Sem 3</option>
+        <option value="sem4">Sem 4</option>
+        <option value="sem5">Sem 5</option>
+        <option value="sem6">Sem 6</option>
+        <option value="sem7">Sem 7</option>
+        <option value="sem8">Sem 8</option>
+        <option value="mp">Manufacturing processes</option>
+        <option value="ed">Engineering Drawing</option>
+        <option value="physics">Physics</option>
+        <option value="chemistry">Chemistry</option>
+        <option value="math">Math</option>
+        <option value="ag">Agriculture Operation</option>
+        <option value="bo">Ancillary Business</option>
+        <option value="eng">Ancillary English</option>
+      </select>
+    </div>
+  </header>
+  <div class="book-grid">
+    <!-- Book Items -->
+    <div class="book" data-sem="sem1" data-subject="mp">
+      <a href="https://drive.google.com/file/d/15okOeombgqNsSzchoflFsnYfd1QZtDWg/view?usp=drivesdk" target="_blank">
+        <img src="book4.jpg" alt="Manufacturing Processes">
+        <div class="book-content">
+          <h3>Manufacturing Processes</h3>
+          <p>MP Hn Gupta</p>
+        </div>
+      </a>
+    </div>
+    <div class="book" data-sem="sem1" data-subject="mp">
+      <a href="https://drive.google.com/file/d/15msPIkop9cLnrf0O2iFpFVFz6wXPkzuq/view?usp=drivesdk" target="_blank">
+        <img src="book3.jpg" alt="Manufacturing Engineering">
+        <div class="book-content">
+          <h3>Manufacturing Engineering</h3>
+          <p>MP Kalpakjian</p>
+        </div>
+      </a>
+    </div>
+    
+    
+    <div class="book" data-sem="sem2" data-subject="mp">
+      <a href="https://drive.google.com/file/d/1PQLD2Gmwq2EXGWbUfNkJeVOV0S0ksZYR/view?usp=drivesdk" target="_blank">
+        <img src="booka1.jpg" alt="Manufacturing Engineering">
+        <div class="book-content">
+          <h3>Manufacturing Engineering</h3>
+          <p>Mikell P.Groover</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem2" data-subject="mp">
+      <a href="https://drive.google.com/file/d/19iX80Gwj6m2v1Y8Y9BcTprwvjuMWr88x/view?usp=drivesdk" target="_blank">
+        <img src="booka1.jpg" alt="Engineering Book 3">
+        <div class="book-content">
+          <h3>Manufacturing Engineering</h3>
+          <p>Mikell P.Groover ans.</p>
+        </div>
+      </a>
+    </div>
+    <div class="book" data-sem="sem1" data-subject="ed">
+      <a href="https://drive.google.com/file/d/13JYrKE9xAYhfDbTxUaj5gFbMeoozFBc7/view?usp=drivesdk" target="_blank">
+        <img src="book66.jpg" alt="Book 2">
+        <div class="book-content">
+          <h3>Engineering Drawing</h3>
+          <p>ND Bhatt</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem1" data-subject="ed">
+      <a href="https://drive.google.com/file/d/13KXeVsV2tfRe3E9KJMlJIYWt5lwZk3lF/view?usp=drivesdk" target="_blank">
+        <img src="book5.jpg" alt="Book 2">
+        <div class="book-content">
+          <h3>Engineering Drawing</h3>
+          <p>Venkata Reddy</p>
+        </div>
+      </a>
+    </div>
+    <div class="book" data-sem="sem1" data-subject="physics">
+      <a href="https://drive.google.com/file/d/19TwEnndHTgCoVMmezanEY9KUbpcPbKPU/view?usp=drivesdk" target="_blank">
+        <img src="book10.jpg" alt="Book 2">
+        <div class="book-content">
+          <h3>Book 2</h3>
+          <p>Eugene Hecht</p>
+        </div>
+      </a>
+    </div>
+    <div class="book" data-sem="sem1" data-subject="physics">
+      <a href="https://drive.google.com/file/d/1npONrF8_teSht5iwM9e5dnOq1KLA7me1/view?usp=drivesdk" target="_blank">
+        <img src="book1.jpg" alt="Optics">
+        <div class="book-content">
+          <h3>Optics</h3>
+          <p>Optics</p>
+        </div>
+      </a>
+    </div>
+    <div class="book" data-sem="sem1" data-subject="physics">
+      <a href="https://drive.google.com/file/d/1EdUXTGF9r35IUtUDKMl2saUhAQxJ9xoQ/view?usp=drive_link" target="_blank">
+        <img src="bookvi.jpg" alt="Vibrations and Waves">
+        <div class="book-content">
+          <h3>Physics</h3>
+          <p>Vibrations and Waves</p>
+        </div>
+      </a>
+    </div>
+    <div class="book" data-sem="sem1" data-subject="physics">
+      <a href="https://drive.google.com/file/d/1ek1JRxiN1DXLi_1Rj8XCGkOQckBCIdkr/view?usp=drive_link" target="_blank">
+        <img src="book801.jpg" alt="Interference">
+        <div class="book-content">
+          <h3>Physics</h3>
+          <p>Interference</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem1" data-subject="physics">
+      <a href="https://drive.google.com/file/d/0B4tHbRule3OEFrVmNGQUk/view?usp=drivesdk&resourcekey=0-O8AOzf-ZN7FBDUoHR1WJrQ" target="_blank">
+        <img src="book9.jpg" alt="Book 2">
+        <div class="book-content">
+          <h3>Book 2</h3>
+          <p>Feynman Lectures</p>
+        </div>
+      </a>
+    </div>
+    <div class="book" data-sem="sem1" data-subject="physics">
+      <a href="https://drive.google.com/file/d/1wmbNtZqbImtJM5BFAHAOvVp1EPdcTAFT/view?usp=drive_link" target="_blank">
+        <img src="bookfy.jpg" alt="The Feynman Lectures">
+        <div class="book-content">
+          <h3>Physics</h3>
+          <p> Feynman Lectures</p>
+        </div>
+      </a>
+    </div>
+  
+    <div class="book" data-sem="sem1" data-subject="chemistry">
+      <a href="https://drive.google.com/file/d/12x7xGMaTCIINVYN4zSTDAhCahEeRA7IG/view?usp=drivesdk" target="_blank">
+        <img src="book8.jpg" alt="Book 2">
+        <div class="book-content">
+          <h3>Book 2</h3>
+          <p>Jain & Jain</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem1" data-subject="chemistry">
+      <a href="https://drive.google.com/file/d/12pNKvu-t013pbm8SEy5ds1bfHozPUK66/view?usp=drivesdk" target="_blank">
+        <img src="book7.jpg" alt="Book 2">
+        <div class="book-content">
+          <h3>Book 2</h3>
+          <p>Shikha Agarwal</p>
+        </div>
+      </a>
+    </div>
+    <div class="book" data-sem="sem1" data-subject="math">
+      <a href="https://drive.google.com/file/d/1CjKKiO_PzcIGj5udjrtIEFuSrtvt5yvP/view?usp=drivesdk" target="_blank">
+        <img src="book6.jpg" alt="Higher Engineering Mathematics">
+        <div class="book-content">
+          <h3>Higher Engineering Mathematics</h3>
+          <p>B.S. Grewal</p>
+        </div>
+      </a>
+    </div>
+    <div class="book" data-sem="sem1" data-subject="math">
+      <a href="https://drive.google.com/file/d/1CjM4lZyWX2DJtilGBRhcm9lB7fKsIMDJ/view?usp=drivesdk" target="_blank">
+        <img src="book2.jpg" alt="Book 2">
+        <div class="book-content">
+          <h3>Advanced Engineering Mathematics</h3>
+          <p>Erwin Kreyszig</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem1" data-subject="math">
+      <a href="https://drive.google.com/file/d/1-j1hYM_t2QOdYEYOWa2s-ggTEJrx8nHa/view?usp=drivesdk
+    " target="_blank">
+        <img src="book101.jpg" alt="Book 2">
+        <div class="book-content">
+          <h3>Reference book</h3>
+          <p>vector calculus</p>
+        </div>
+      </a>
+    </div>
+    <div class="book" data-sem="sem1" data-subject="math">
+      <a href="https://drive.google.com/file/d/1CgiSLSvTXhM1-_The5e3O4WcgH9PdyUb/view?usp=drivesdk" target="_blank">
+        <img src="book102.jpg" alt="Book 2">
+        <div class="book-content">
+          <h3>Reference book</h3>
+          <p>MAM181</p>
+        </div>
+      </a>
+    </div>
+    <div class="book" data-sem="sem1" data-subject="surveying">
+      <a href="https://drive.google.com/file/d/1cz2x165uIZc2ArKp4eyroud-JS1lTaBY/view?usp=drivesdk" target="_blank">
+        <img src="book900.jpg" alt="Surveying">
+        <div class="book-content">
+          <h3>Surveying</h3>
+          <p>Ag op</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem1" data-subject="business">
+      <a href="https://drive.google.com/file/d/1ziGhyGp_-iDo0rxK7Rg46dFzm2aJlvNb/view?usp=drivesdk" target="_blank">
+        <img src="book901.jpg" alt="Business Organization">
+        <div class="book-content">
+          <h3>Business</h3>
+          <p>Business Organization</p>
+        </div>
+      </a>
+    </div>
+    <div class="book" data-sem="sem2" data-subject="engineering">
+      <a href="https://drive.google.com/file/d/1B5aPf2oVcw0QSqyx9vQgXvMhdpxMuCwo/view?usp=drivesdk" target="_blank">
+        <img src="booka2.jpg" alt="Programming">
+        <div class="book-content">
+          <h3>Programming</h3>
+          <p>Reema Thareja</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem2" data-subject="engineering">
+      <a href="https://drive.google.com/file/d/1AzxDBFYvLAb_7tX4ShbCCelt0uOkSXpI/view?usp=drivesdk" target="_blank">
+        <img src="booka3.jpg" alt="Programming">
+        <div class="book-content">
+          <h3>Programming</h3>
+          <p>Ritchie Kernighan</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem2" data-subject="engineering">
+      <a href="https://drive.google.com/file/d/1BBUX0NyUgjjihsDw0x4dQ78KWaTHs7Ek/view?usp=drivesdk" target="_blank">
+        <img src="booka4.jpg" alt="Schaum's Programming">
+        <div class="book-content">
+          <h3>Programming</h3>
+          <p>Schaum's Programming</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem2" data-subject="engineering">
+      <a href="https://drive.google.com/file/d/1AeXrJUkj8TdFjXD7ZznoK33kwhXc2Qt_/view?usp=drivesdk" target="_blank">
+        <img src="booka5.jpg" alt="Book">
+        <div class="book-content">
+          <h3>Book</h3>
+          <p>C.R. Robertson</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem2" data-subject="engineering">
+      <a href="https://drive.google.com/file/d/1AT3hCuwCltbc6_ShCj2FmrUpAZmXiJqF/view?usp=drivesdk" target="_blank">
+        <img src="booka6.jpg" alt="Book">
+        <div class="book-content">
+          <h3>Book</h3>
+          <p>D.C. Kulshreshtha</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem2" data-subject="engineering">
+      <a href="https://drive.google.com/file/d/1ARyRG9d12LXGi4c6oEzW0bI-NxAxbfjv/view?usp=drivesdk" target="_blank">
+        <img src="booka7.jpg" alt="Book">
+        <div class="book-content">
+          <h3>Book</h3>
+          <p>Gulzar Ahmad</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem2" data-subject="engineering">
+      <a href="https://drive.google.com/file/d/1Bl7IcuGIQIyZ2xHf5i-98Ns9q1A2Jezu/view?usp=drivesdk" target="_blank">
+        <img src="booka8.jpg" alt="Book">
+        <div class="book-content">
+          <h3>Book</h3>
+          <p>M.D. Rai Singhania</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem2" data-subject="engineering">
+      <a href="https://drive.google.com/file/d/1GPP6EL4qrVJ8ev_2rgtW0DmKr91z_IJd/view?usp=drivesdk" target="_blank">
+        <img src="booka9.jpg" alt="Thermodynamics">
+        <div class="book-content">
+          <h3>Thermodynamics</h3>
+          <p>P.K. Nag</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem2" data-subject="engineering">
+      <a href="https://drive.google.com/file/d/1C9rkrzCT9lKXOXyKdb11si_cwEXFn_VI/view?usp=drivesdk" target="_blank">
+        <img src="booka10.jpg" alt="Dynamics">
+        <div class="book-content">
+          <h3>Dynamics</h3>
+          <p>Meriam</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem2" data-subject="engineering">
+      <a href="https://drive.google.com/file/d/1CBmtqmA-XAnefbh66k1CZHEDaRWm1ULv/view?usp=drivesdk" target="_blank">
+        <img src="bookb1.jpg" alt="Engineering Mechanics">
+        <div class="book-content">
+          <h3>Engineering Mechanics</h3>
+          <p>R.C. Hibbler</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem2" data-subject="engineering">
+      <a href="https://drive.google.com/file/d/1C0Cyis7ycmEBo-MNEEfpbn9_Bhv7wdzQ/view?usp=drivesdk" target="_blank">
+        <img src="bookb2.jpg" alt="Mechanics">
+        <div class="book-content">
+          <h3>Mechanics</h3>
+          <p>Shames</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem2" data-subject="engineering">
+      <a href="https://drive.google.com/file/d/1FvYRn7RlEa6nGdFejYziQGQs_8dQzqgk/view?usp=drivesdk" target="_blank">
+        <img src="bookb3.jpg" alt="Book">
+        <div class="book-content">
+          <h3>Book</h3>
+          <p>Arthur Bieser</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem2" data-subject="engineering">
+      <a href="https://drive.google.com/file/d/1ZV1zegs9Uk916zw1AewcS4TjRRj62ghj/view?usp=drivesdk" target="_blank">
+        <img src="bookb4.jpg" alt="Book">
+        <div class="book-content">
+          <h3>Book</h3>
+          <p>IES Master</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem2" data-subject="engineering">
+      <a href="https://drive.google.com/file/d/1ZOu3aYZ67vPi-qKaetMygRIbmmEEP7SM/view?usp=drivesdk" target="_blank">
+        <img src="bookb5.jpg" alt="Book">
+        <div class="book-content">
+          <h3>Book</h3>
+          <p>S.C. Rangwala</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem2" data-subject="engineering">
+      <a href="https://drive.google.com/file/d/1_GS28_I-sP_iW7lZl2y15e9ytPRlu1_H/view?usp=drivesdk" target="_blank">
+        <img src="bookb6.jpg" alt="Fluid Mechanics">
+        <div class="book-content">
+          <h3>Fluid Mechanics</h3>
+          <p>R.K. Bansal</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem2" data-subject="engineering">
+      <a href="https://drive.google.com/file/d/15nY4pBMr-2MXQySfa_PgcIuIMuh2wSAs/view?usp=drivesdk" target="_blank">
+        <img src="bookb7.jpg" alt="Fluid Mechanics">
+        <div class="book-content">
+          <h3>Fluid Mechanics</h3>
+          <p>K Subramanya</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem2" data-subject="engineering">
+      <a href="https://drive.google.com/file/d/1azEWlo2OmCT6VwVp9SSYDAr1ljUVKNj_/view?usp=drivesdk" target="_blank">
+        <img src="bookb8.jpg" alt="Book">
+        <div class="book-content">
+          <h3>Book</h3>
+          <p>IES Master</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem2" data-subject="engineering">
+      <a href="https://drive.google.com/file/d/1al0wqWoFdAyVeQkhgvoHeo8u1yuQkVDX/view?usp=drivesdk" target="_blank">
+        <img src="bookb9.jpg" alt="Book">
+        <div class="book-content">
+          <h3>Book</h3>
+          <p>S.K. Garg</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem2" data-subject="engineering">
+      <a href="https://drive.google.com/file/d/1-Nie_prGvgj1kmyiQlI7Sv8Zk6pjw3fK/view?usp=drivesdk" target="_blank">
+        <img src="bookb10.jpg" alt="Programming">
+        <div class="book-content">
+          <h3>Programming</h3>
+          <p>David and Dawn Griffiths</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem2" data-subject="engineering">
+      <a href="https://drive.google.com/file/d/15mybqC4v1G4br3crQQ_C76fSnfm-m7-I/view?usp=drivesdk" target="_blank">
+        <img src="bookb11.jpg" alt="Mathematics">
+        <div class="book-content">
+          <h3>Mathematics</h3>
+          <p>H.K. Das</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem2" data-subject="engineering">
+      <a href="https://drive.google.com/file/d/1_JrP0shVPOx2BcOFlNOMG1npmiZaSp7G/view?usp=drivesdk" target="_blank">
+        <img src="bookc1.jpg" alt="Advanced Mathematics">
+        <div class="book-content">
+          <h3>Advanced Mathematics</h3>
+          <p>H.K. Das Advanced</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem2" data-subject="engineering">
+      <a href="https://drive.google.com/file/d/15pQNsLpe8OFq_gn_yxCJR3S5O8mHxhN1/view?usp=drivesdk" target="_blank">
+        <img src="bookc6.jpg" alt="Mechanics">
+        <div class="book-content">
+          <h3>Mechanics</h3>
+          <p>Beer and Johnston</p>
+        </div>
+      </a>
+    </div>
+    <div class="book" data-sem="sem2" data-subject="engineering">
+      <a href="https://drive.google.com/file/d/1aOJjCBYklul8OgbmJlvVgIEItQPU72ua/view?usp=drivesdk" target="_blank">
+        <img src="bookc7.jpg" alt="Mechanics">
+        <div class="book-content">
+          <h3>Mechanics</h3>
+          <p>Andrew Pytel</p>
+        </div>
+      </a>
+    </div>
+    
+    <div class="book" data-sem="sem2" data-subject="engineering">
+      <a href="https://drive.google.com/file/d/1aN8ThCH92G_tw7pONWOKEK3FrALmlv1r/view?usp=drivesdk" target="_blank">
+        <img src="bookc12.jpg" alt="Engineering Mechanics">
+        <div class="book-content">
+          <h3>Engineering Mechanics</h3>
+          <p>R.C. Hibbler</p>
+        </div>
+      </a>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const filterDropdown = document.getElementById('filterDropdown');
+        const books = document.querySelectorAll('.book');
+        const searchBar = document.getElementById('searchBar');
+        
+        // Filter functionality
+        filterDropdown.addEventListener('change', () => {
+          const filterValue = filterDropdown.value;
+          
+          books.forEach(book => {
+            const sem = book.getAttribute('data-sem');
+            const subject = book.getAttribute('data-subject');
+            if (filterValue === 'all' ||
+              (filterValue.startsWith('sem') && sem === filterValue) ||
+              subject === filterValue) {
+              book.style.display = 'block';
+            } else {
+              book.style.display = 'none';
+            }
+          });
+        });
+        
+        // Search functionality
+        searchBar.addEventListener('input', function(e) {
+          const searchTerm = e.target.value.toLowerCase();
+          books.forEach(book => {
+            const title = book.querySelector('h3').textContent.toLowerCase();
+            const author = book.querySelector('p').textContent.toLowerCase();
+            const isVisible = title.includes(searchTerm) || author.includes(searchTerm);
+            book.style.display = isVisible ? 'block' : 'none';
+          });
+        });
+      });
+      
+      // Trigger 'All' filter on page load
+      document.getElementById('filterDropdown').value = 'all';
+    </script>
+</body>
+
+</html>
